@@ -15,13 +15,13 @@ To get Easy-Split up and running on your local machine, follow these steps:
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/<username>/<repository>.git
+git clone https://github.com/thomas-elliott/easy-split.git
 ```
 
 2. Navigate to the repository:
 
 ```sh
-cd <repository>
+cd easy-split
 ```
 
 3. Install the dependencies:

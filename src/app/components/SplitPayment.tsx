@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { calculateSharedCost, Split } from '@/app/utils/calculateSharedCost';
 import { saveSplit } from '@/app/utils/db';
 import SplitInput from '@/app/components/SplitInput';
+import Card from '@/app/components/Card';
 
 interface SplitPaymentProps {
   onNewSplit: (newSplit: Split) => void;
@@ -30,32 +31,34 @@ const SplitPayment: React.FC<SplitPaymentProps> = ({ onNewSplit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 text-black">
-      <SplitInput
-        label="Total"
-        placeholder="Total amount"
-        value={total}
-        onChange={e => setTotal(parseFloat(e.target.value))}
-      />
-      <SplitInput
-        label="Thomas"
-        placeholder="Person 1 amount"
-        value={person1}
-        onChange={e => setPerson1(parseFloat(e.target.value))}
-      />
-      <SplitInput
-        label="Lucas"
-        placeholder="Person 2 amount"
-        value={person2}
-        onChange={e => setPerson2(parseFloat(e.target.value))}
-      />
-      <button
-        type="submit"
-        className="w-full p-2 bg-blue-500 text-white rounded"
-      >
-        Calculate
-      </button>
-    </form>
+    <Card>
+      <form onSubmit={handleSubmit} className="space-y-4 text-black">
+        <SplitInput
+          label="Total"
+          placeholder="Total amount"
+          value={total}
+          onChange={e => setTotal(parseFloat(e.target.value))}
+        />
+        <SplitInput
+          label="Thomas"
+          placeholder="Person 1 amount"
+          value={person1}
+          onChange={e => setPerson1(parseFloat(e.target.value))}
+        />
+        <SplitInput
+          label="Lucas"
+          placeholder="Person 2 amount"
+          value={person2}
+          onChange={e => setPerson2(parseFloat(e.target.value))}
+        />
+        <button
+          type="submit"
+          className="w-full p-2 bg-blue-500 text-white rounded"
+        >
+          Calculate
+        </button>
+      </form>
+    </Card>
   );
 };
 

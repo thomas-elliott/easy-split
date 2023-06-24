@@ -5,6 +5,7 @@ import SplitPayment from '@/app/components/SplitPayment';
 import PreviousSplits from '@/app/components/PreviousSplits';
 import { getSplits } from '@/app/utils/db';
 import { Split } from '@/app/utils/calculateSharedCost';
+import Header from '@/app/components/Header';
 
 export default function Page() {
   const [splits, setSplits] = useState<Split[]>([]);
@@ -19,9 +20,13 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold mb-4">Easy Split</h1>
-      <SplitPayment onNewSplit={newSplit => setSplits([...splits, newSplit])} />
-      <PreviousSplits splits={splits} />
+      <Header />
+      <main className=" flex flex-col space-y-4">
+        <SplitPayment
+          onNewSplit={newSplit => setSplits([...splits, newSplit])}
+        />
+        <PreviousSplits splits={splits} />
+      </main>
     </div>
   );
 }
