@@ -1,5 +1,6 @@
 import React from 'react';
 import { Split } from '@/app/utils/calculateSharedCost';
+import Card from '@/app/components/Card';
 
 interface PreviousSplitsProps {
   splits: Split[];
@@ -7,15 +8,15 @@ interface PreviousSplitsProps {
 
 const PreviousSplits: React.FC<PreviousSplitsProps> = ({ splits }) => {
   return (
-    <div className="mt-8">
-      <h2 className="text-2xl font-bold mb-4">Previous Splits</h2>
+    <Card>
+      <h2 className="text-xl mb-4">Previous Splits</h2>
       <table className="w-full border-collapse">
         <thead>
           <tr>
             <th className="border border-gray-300 p-2">Total</th>
+            <th className="border border-gray-300 p-2">Shared</th>
             <th className="border border-gray-300 p-2">Thomas</th>
             <th className="border border-gray-300 p-2">Lucas</th>
-            <th className="border border-gray-300 p-2">Shared Cost</th>
           </tr>
         </thead>
         <tbody>
@@ -25,19 +26,19 @@ const PreviousSplits: React.FC<PreviousSplitsProps> = ({ splits }) => {
                 {split.total.toFixed(2)}
               </td>
               <td className="border border-gray-300 p-2">
+                {(split.sharedCost * 2).toFixed(2)}
+              </td>
+              <td className="border border-gray-300 p-2">
                 {split.person1.toFixed(2)}
               </td>
               <td className="border border-gray-300 p-2">
                 {split.person2.toFixed(2)}
               </td>
-              <td className="border border-gray-300 p-2">
-                {split.sharedCost.toFixed(2)}
-              </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </Card>
   );
 };
 
