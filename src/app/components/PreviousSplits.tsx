@@ -21,10 +21,18 @@ const PreviousSplits: React.FC<PreviousSplitsProps> = ({ splits }) => {
         <tbody>
           {splits.reverse().map((split, index) => (
             <tr key={index}>
-              <td className="border border-gray-300 p-2">{split.total.toFixed(2)}</td>
-              <td className="border border-gray-300 p-2">{split.person1.toFixed(2)}</td>
-              <td className="border border-gray-300 p-2">{split.person2.toFixed(2)}</td>
-              <td className="border border-gray-300 p-2">{split.sharedCost.toFixed(2)}</td>
+              <td className="border border-gray-300 p-2">
+                {split.total.toFixed(2)}
+              </td>
+              <td className="border border-gray-300 p-2">
+                {split.person1.toFixed(2)}
+              </td>
+              <td className="border border-gray-300 p-2">
+                {split.person2.toFixed(2)}
+              </td>
+              <td className="border border-gray-300 p-2">
+                {split.sharedCost.toFixed(2)}
+              </td>
             </tr>
           ))}
         </tbody>
