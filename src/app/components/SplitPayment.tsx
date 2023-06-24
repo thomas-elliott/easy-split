@@ -14,33 +14,45 @@ const SplitPayment: React.FC<SplitPaymentProps> = ({ onNewSplit }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const { updatedPerson1, updatedPerson2, sharedCost } = calculateSharedCost(total, person1, person2);
-    const newSplit: Split = { total, person1: updatedPerson1, person2: updatedPerson2, sharedCost };
+    const { updatedPerson1, updatedPerson2, sharedCost } = calculateSharedCost(
+      total,
+      person1,
+      person2,
+    );
+    const newSplit: Split = {
+      total,
+      person1: updatedPerson1,
+      person2: updatedPerson2,
+      sharedCost,
+    };
     await saveSplit(newSplit);
     onNewSplit(newSplit);
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 text-black">
-        <SplitInput
-          label='Total'
-          placeholder="Total amount"
-          value={total}
-          onChange={(e) => setTotal(parseFloat(e.target.value))}
-        />
       <SplitInput
-        label='Thomas'
+        label="Total"
+        placeholder="Total amount"
+        value={total}
+        onChange={e => setTotal(parseFloat(e.target.value))}
+      />
+      <SplitInput
+        label="Thomas"
         placeholder="Person 1 amount"
         value={person1}
-        onChange={(e) => setPerson1(parseFloat(e.target.value))}
-        />
+        onChange={e => setPerson1(parseFloat(e.target.value))}
+      />
       <SplitInput
         label="Lucas"
         placeholder="Person 2 amount"
         value={person2}
-        onChange={(e) => setPerson2(parseFloat(e.target.value))}
-        />
-      <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded">
+        onChange={e => setPerson2(parseFloat(e.target.value))}
+      />
+      <button
+        type="submit"
+        className="w-full p-2 bg-blue-500 text-white rounded"
+      >
         Calculate
       </button>
     </form>

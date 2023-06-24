@@ -20,9 +20,8 @@ export default function Page() {
   return (
     <div className="container mx-auto px-4">
       <h1 className="text-4xl font-bold mb-4">Easy Split</h1>
-      <SplitPayment onNewSplit={(newSplit) => setSplits([...splits, newSplit])} />
+      <SplitPayment onNewSplit={newSplit => setSplits([...splits, newSplit])} />
       <PreviousSplits splits={splits} />
     </div>
   );
-};
-
+}
