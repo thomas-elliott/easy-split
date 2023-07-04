@@ -3,7 +3,7 @@ import React from 'react';
 interface SplitInputProps {
   label: string;
   placeholder: string;
-  value: number;
+  value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

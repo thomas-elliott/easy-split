@@ -6,12 +6,16 @@ export interface Split {
 }
 
 export function calculateSharedCost(
-  total: number,
-  person1: number,
-  person2: number,
+  total: string,
+  person1: string,
+  person2: string,
 ): { updatedPerson1: number; updatedPerson2: number; sharedCost: number } {
-  const sharedCost = (total - person1 - person2) / 2;
-  const updatedPerson1 = person1 + sharedCost;
-  const updatedPerson2 = person2 + sharedCost;
+  const t = parseFloat(total);
+  const p1 = parseFloat(person1);
+  const p2 = parseFloat(person2);
+
+  const sharedCost = (t - p1 - p2) / 2;
+  const updatedPerson1 = p1 + p2;
+  const updatedPerson2 = p1 + p2;
   return { updatedPerson1, updatedPerson2, sharedCost };
 }
