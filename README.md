@@ -24,6 +24,8 @@ git clone https://github.com/thomas-elliott/easy-split.git
 cd easy-split
 ```
 
+This project requires **Node.js 22** or later.
+
 3. Install the dependencies:
 
 ```sh
